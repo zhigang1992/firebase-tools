@@ -3,7 +3,7 @@
 var getProjectNumber = require("./getProjectNumber");
 var api = require("./api");
 
-module.exports = function(options) {
+function fetchWebSetup(options) {
   return getProjectNumber(options)
     .then(function(projectNumber) {
       return api.request("GET", "/v1/projects/" + projectNumber + "/clients/_:getWebAppConfig", {
@@ -14,4 +14,8 @@ module.exports = function(options) {
     .then(function(response) {
       return response.body;
     });
+}
+
+module.exports = {
+  fetch: fetchWebSetup,
 };

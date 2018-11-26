@@ -69,7 +69,7 @@ function _stop() {
 }
 
 function _start(options) {
-  return implicitInit(options).then(function(init) {
+  return implicitInit.init(options).then(function(init) {
     var configs = normalizedHostingConfigs(options);
 
     for (var i = 0; i < configs.length; i++) {

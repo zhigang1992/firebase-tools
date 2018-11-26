@@ -13,7 +13,7 @@ module.exports = new Command("setup:web")
   .description("display this project's setup information for the Firebase JS SDK")
   .before(requirePermissions, [])
   .action(function(options) {
-    return fetchWebSetup(options).then(function(config) {
+    return fetchWebSetup.fetch(options).then(function(config) {
       logger.info(JS_TEMPLATE.replace("{/*--CONFIG--*/}", JSON.stringify(config, null, 2)));
       return Promise.resolve(config);
     });
