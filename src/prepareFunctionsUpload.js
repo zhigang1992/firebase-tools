@@ -115,7 +115,7 @@ var _getRuntimeChoice = function(sourceDir) {
   var loaded = require(packageJsonPath);
   var choice = loaded.engines;
   if (!choice) {
-    return null;
+    return "nodejs8";
   }
   if (_.isEqual(choice, { node: "6" })) {
     return "nodejs6";
